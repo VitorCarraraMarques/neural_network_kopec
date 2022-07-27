@@ -37,7 +37,7 @@ class Network:
     # backpropagate() doesn't actually change any weights 
     # this function uses the deltas calculated in backpropagate() to 
     # actually make changes to the weights
-    def update_weigths(self):
+    def update_weights(self):
         for layer in self.layers[1:]: # skip input layer
             for neuron in layer.neurons: 
                 for w in range(len(neuron.weights)):
