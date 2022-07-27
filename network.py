@@ -8,7 +8,7 @@ T = TypeVar('T') # tipo de saída para interpretação da rede neural
 
 class Network: 
     def __init__(self, layer_structure, learning_rate, activation_function = sigmoid, derivative_activation_function = derivative_sigmoid):
-        if len(layer_structure < 3):
+        if len(layer_structure) < 3:
             raise ValueError("Error: Should be at least 3 layers (1 input, 1 hidden, 1 output")
         self.layers = [] 
         #input layer 
