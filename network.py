@@ -17,6 +17,7 @@ class Network:
         # hidden layers 
         for previous, num_neurons in enumerate(layer_structure[1::]):
             next_layer = Layer(self.layers[previous], num_neurons, learning_rate, activation_function, derivative_activation_function)
+            self.layers.append(next_layer)
 
     # Pushes input data to the first layer, then output from the first
     # as input to the second, second to third, etc. 
