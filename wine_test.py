@@ -24,7 +24,7 @@ if __name__ == "__main__":
             wine_species.append(species)
     normalize_by_feature_scaling(wine_parameters)
 
-    wine_network = Network([13, 7, 3], 0.9)
+    wine_network = Network([13, 10, 3], 0.5)
 
     def wine_interpret_output(output):
         if max(output) == output[0]:
@@ -38,7 +38,7 @@ if __name__ == "__main__":
     # faz o treinamento nos 150 primeiros vinhos, 10 vezes
     wine_trainers = wine_parameters[0:150]
     wine_trainers_corrects = wine_classifications[0:150]
-    for _ in range(10):
+    for _ in range(50):
         wine_network.train(wine_trainers, wine_trainers_corrects)
     
 
