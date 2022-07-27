@@ -40,3 +40,17 @@ class Layer:
             next_deltas = [n.delta for n in next_layer.neurons]
             sum_weights_and_deltas = dot_product(next_weights, next_deltas)
             neuron.delta = neuron.derivative_activation_function(neuron.output_cache) * sum_weights_and_deltas
+
+
+"""
+O método init de Layer inicia uma lista de neurônios, chamada neurons. Essa lista é verdadeiramente o que é chamado 
+de camada aqui. 
+
+As funções que calculam os deltas, são onde o backpropagation de fato ocorre. 
+A camada de saída tem seus deltas calculado a partir da diferença entre a saída esperada e saída real para cada neurônio. 
+Isto é, os deltas são calculados a partir do erro dos neurônios da camada de saída. 
+Em seguida, esses deltas são propragados para as camadas anteriores, que receberão os deltas das camadas seguintes 
+na forma de next_deltas, obtido a partir de next_layer.neurons. Esses deltas das próximas camadas são então, 
+utilizados para calcular os deltas da camada atual. E dessa forma, os deltas da camada atual passarão a atuar como 
+next_deltas,caso haja outras camadas anteriores.  
+"""
