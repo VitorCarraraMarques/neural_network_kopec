@@ -32,7 +32,7 @@ class Network:
         self.layers[last_layer].calculate_deltas_for_outputs_layer(expected)
         # calculate delta for hidden layer in reverse order 
         for l in range(last_layer, 0, -1):
-            self.layers[l].calculate_deltas_for_hidden_layer(self.layer[l + 1])
+            self.layers[l].calculate_deltas_for_hidden_layer(self.layers[l + 1])
 
     # backpropagate() doesn't actually change any weights 
     # this function uses the deltas calculated in backpropagate() to 
