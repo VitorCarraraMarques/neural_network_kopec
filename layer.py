@@ -25,8 +25,18 @@ class Layer:
             self.output_cache = [n.output(inputs) for n in self.neurons]
         return self.output_cache
 
-    # deve ser chamada somente na camada de saída 
+    # deve ser chamada somente na camada de saída:
     def calculate_deltas_for_outputs_layer(self, expected):
         for n in range(len(self.neurons)):
             # delta = f'(OutputCache) * (saída esperada - saída real)
             self.neuros[n].delta = self.neurons[n].derivative_activation_function(self.neurons[n].output_cache) * (expected[n] - self.output_cache[n])
+
+    
+    # não deve ser chamado na camada de saída: 
+    def calculate_deltas_for_hidden_layer(self, next_layer):
+        for index, neuron in enumerate(self.neurons):
+            next_weights = [n.weights[index] for n in next_layer.neurons]
+            # a linha anterior não é a mesma coisa que next_weights = next_layer.neurons.weights ?
+            next_deltas = [n.delta for n in next_layer.neurons]
+            sum_weights_and_deltas = dot_product(next_weights, next_deltas)
+            neuron.delta = neuron.derivative_activation_function(neuron.output_cache) * sum_weights_and_deltas
