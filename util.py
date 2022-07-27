@@ -13,4 +13,11 @@ def dot_product(xs, ys):
     #     soma += x*y 
     # return soma
 
+# a clássica função sigmoid
+def sigmoid(x):
+    return 1.0 / (1.0 + exp(-x))
 
+# derivada da função sigmoid
+def derivative_sigmoid(x):
+    sig = sigmoid(x)
+    return sig * (1 - sig)
