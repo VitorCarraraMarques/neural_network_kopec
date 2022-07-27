@@ -29,7 +29,7 @@ class Network:
     def backpropagate(self, expected):
         # calculate delta for output layer neurons 
         last_layer = len(self.layers) - 1
-        self.layers[last_layer].calculate_deltas_for_output_layer(expected)
+        self.layers[last_layer].calculate_deltas_for_outputs_layer(expected)
         # calculate delta for hidden layer in reverse order 
         for l in range(last_layer, 0, -1):
             self.layers[l].calculate_deltas_for_hidden_layer(self.layer[l + 1])
