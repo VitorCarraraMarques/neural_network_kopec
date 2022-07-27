@@ -21,3 +21,14 @@ def sigmoid(x):
 def derivative_sigmoid(x):
     sig = sigmoid(x)
     return sig * (1 - sig)
+
+# supõe que todas as linhas têm o mesmo tamanho 
+# e faz o feature scaling de cada coluna para que esteja no intervalo de 0 a 1 
+def normalize_by_feature_scaling(dataset):
+    for col_num in range(len(dataset[0])):
+        column = [row[col_num] for row in dataset]
+        maximum = max(column)
+        minimum = min(column)
+        for row_num in range(len(dataset)):
+            dataset[row_num][col_num] = (dataset[row_num][col_num] - minimum) / (maximum - minimum)
+
