@@ -24,3 +24,9 @@ class Layer:
         else: 
             self.output_cache = [n.output(inputs) for n in self.neurons]
         return self.output_cache
+
+    # deve ser chamada somente na camada de saída 
+    def calculate_deltas_for_outputs_layer(self, expected):
+        for n in range(len(self.neurons)):
+            # delta = f'(OutputCache) * (saída esperada - saída real)
+            self.neuros[n].delta = self.neurons[n].derivative_activation_function(self.neurons[n].output_cache) * (expected[n] - self.output_cache[n])
