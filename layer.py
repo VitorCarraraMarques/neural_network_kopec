@@ -17,3 +17,10 @@ class Layer:
             neuron = Neuron(random_weights, learning_rate, activation_function, derivative_activation_function)
             self.neurons.append(neuron)
         self.output_cache = [0.0 for _ in range(num_neurons)]
+
+    def outputs(self, inputs):
+        if self.previous_layer is None: 
+            self.output_cache = inputs
+        else: 
+            self.output_cache = [n.output(inputs) for n in self.neurons]
+        return self.output_cache
