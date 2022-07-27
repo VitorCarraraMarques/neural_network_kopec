@@ -1,6 +1,6 @@
 # Neural Network 
 
-Este é um projeto cujo propósito é o estudo e entendimento dos mecanismos fundamentais de funcionamento de uma Rede Neural com funcionamento baseado em feedforward e backpropagation 
+Este é um projeto cujo propósito é o estudo e entendimento dos mecanismos fundamentais de funcionamento de uma Rede Neural baseada em feedforward e backpropagation.
 
 ## Bibliotecas
 
